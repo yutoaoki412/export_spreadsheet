@@ -1,0 +1,12 @@
+project_id: "development-aoki"
+
+queries:
+  daily:
+    - file: "queries/daily/query1.sql"
+      sheet_id: "1uxi4t76hG3SxWraCPpUpG40IHYlVZd3uXbRVlOQsO7U"
+  weekly:
+    - file: "queries/weekly/query1.sql"
+      sheet_id: "1uxi4t76hG3SxWraCPpUpG40IHYlVZd3uXbRVlOQsO7U"
+  monthly:
+    - file: "queries/monthly/query1.sql"
+      sheet_id: "1uxi4t76hG3SxWraCPpUpG40IHYlVZd3uXbRVlOQsO7U"
