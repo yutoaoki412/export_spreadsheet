@@ -1,27 +1,18 @@
 # BigQuery から Google Sheets へのエクスポート
 
-このプロジェクトは、Google Cloud Functions (第2世代) を使用して BigQuery から Google Sheets にデータをエクスポートするプロセスを自動化します。Cloud Scheduler と Pub/Sub を利用して、日次、週次、月次のエクスポートをスケジュールします。
+このプロジェクトは、Cloud Functionsを使用して BigQuery から GoogleSheets にデータをエクスポートするプロセスを自動化します。
+Cloud Scheduler と Pub/Sub を利用して、日次、週次、月次のエクスポートをスケジュールします。
 
 ## 目次
-
-1. [前提条件](#前提条件)
-2. [プロジェクト構造](#プロジェクト構造)
-3. [セットアップ](#セットアップ)
-4. [デプロイ](#デプロイ)
+1. [プロジェクト構造](#プロジェクト構造)
+2. [セットアップ](#セットアップ)
+3. [デプロイ](#デプロイ)
    - [プロジェクトの設定](#プロジェクトの設定)
    - [サービスアカウントの設定](#サービスアカウントの設定)
    - [Pub/Sub トピックの作成](#pubsub-トピックの作成)
    - [Cloud Functions へのデプロイ](#cloud-functions-へのデプロイ)
    - [Cloud Scheduler の設定](#cloud-scheduler-の設定)
-5. [設定](#設定)
-6. [トラブルシューティング](#トラブルシューティング)
-
-## 前提条件
-
-- 課金が有効な Google Cloud Platform アカウント
-- インストールおよび設定済みの `gcloud` CLI（最新版）
-- Python 3.7 以降
-- BigQuery、Google Sheets、Pub/Sub API へのアクセス権限
+4. [設定](#設定)
 
 ## プロジェクト構造
 
@@ -214,13 +205,3 @@ queries:
     - file: "queries/monthly/query1.sql"
       sheet_id: "あなたのシートID-3"
 ```
-
-## トラブルシューティング
-
-- Cloud Functions で使用されるサービスアカウントが BigQuery と Google Sheets に必要な権限を持っていることを確認してください。
-- エラーメッセージについては Cloud Functions のログを確認してください。
-- `queries/` ディレクトリ内の SQL クエリが有効で、BigQuery のセットアップと互換性があることを確認してください。
-- Pub/Sub トピックが正しく設定されていることを確認してください。
-- Cloud Scheduler ジョブが正しく設定され、適切な Pub/Sub トピックにメッセージを送信していることを確認してください。
-
-より詳細なトラブルシューティングについては、[Cloud Functions](https://cloud.google.com/functions/docs/troubleshooting)、[Cloud Scheduler](https://cloud.google.com/scheduler/docs/troubleshooting)、[Pub/Sub](https://cloud.google.com/pubsub/docs/troubleshooting) の Google Cloud ドキュメントを参照してください。
